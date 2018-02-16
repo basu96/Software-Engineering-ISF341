@@ -23,3 +23,8 @@ Combined repository for all assignments completed in the course.
 ### [Lines of Code](loc)
 * A command line application to count effective number of lines in a code
 * Built on Python3.5
+
+## Contributors
+* [Aman Pratap Rao](https://github.com/amanprataprao)
+* [Basu Dubey](https://github.com/basu96)
+* [Yash Ranjan](https://github.com/coderyash)
