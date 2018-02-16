@@ -1,0 +1,43 @@
+{
+
+    "c":    {
+                "language" : "C",
+                "extension" : "c",
+                "single_comments" : true,
+                "single_comments_trigger" : "//",
+                "multi_comments" : true,
+                "multi_comment_start" : "/[*]",
+                "multi_comment_end" : "[*]/"
+            },
+
+    "cpp":  {
+                "language" : "C++",
+                "extension" : "cpp",
+                "single_comments" : true,
+                "single_comments_trigger" : "//",
+                "multi_comments" : true,
+                "multi_comment_start" : "/[*]",
+                "multi_comment_end" : "[*]/"
+            },
+
+    "java": {
+                "language" : "Java",
+                "extension" : "java",
+                "single_comments" : true,
+                "single_comments_trigger" : "//",
+                "multi_comments" : true,
+                "multi_comment_start" : "/[*]",
+                "multi_comment_end" : "[*]/"
+            },
+
+    "py":   {
+                "language" : "Python",
+                "extension" : "py",
+                "single_comments" : true,
+                "single_comments_trigger" : "#",
+                "multi_comments" : true,
+                "multi_comment_start" : "\"\"\"",
+                "multi_comment_end" : "\"\"\""
+            }
+        
+}
