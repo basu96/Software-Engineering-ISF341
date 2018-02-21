@@ -27,3 +27,6 @@ hs_err_pid*
 
 # Python bytecode
 *.pyc
+
+# Scratchpad directory
+scratch
