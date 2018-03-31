@@ -1,0 +1,29 @@
+Task ID		Task Name		Dependencies		Duration		%Completed
+
+1.			a									8				70
+
+2.			b									10				80
+
+3.			c 				1 2					8				65
+
+4.			d 				1					9				45
+
+5.			e				2					5				90
+
+6.			f				3 4					3				50	
+
+7.			g				4 5					2				95	
+
+8.			h				6 7					4				60
+
+9.			i 				5 6					3				85
+
+
+Laxity-
+g 2
+a 2
+d 1
+e 2
+i 1
+
+Critical Path-   b->c->f->h
