@@ -26,7 +26,7 @@ SECRET_KEY = 'b#r+zu_$a_d5(&#)fn)9a)tz2olkpn8x&uao#=!nu*a#l6$u@9'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'pm.User'
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pm',
 ]
 
 MIDDLEWARE = [
