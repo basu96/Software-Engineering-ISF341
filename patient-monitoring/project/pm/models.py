@@ -51,14 +51,14 @@ class Appointment(models.Model):
     patient = models.ForeignKey(
         User,
         on_delete = models.CASCADE,
-        limit_choices_to = Q(user_type = 'patient'),
+        limit_choices_to = Q(user_type = 1), # type 1 = patient
         related_name = 'patient',
         null = True,
     )
     doctor = models.ForeignKey(
         User,
         on_delete = models.CASCADE,
-        limit_choices_to = Q(user_type = 'patient'),
+        limit_choices_to = Q(user_type = 2), # type 2 = doctor
         related_name = 'doctor',
         null = True,
     )

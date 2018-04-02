@@ -55,7 +55,7 @@ ROOT_URLCONF = 'patient_monitoring.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.getcwd(),'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
