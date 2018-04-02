@@ -33,3 +33,6 @@ scratch
 
 # Virtualenv
 env
+
+# SQLite database(s)
+*.sqlite3
