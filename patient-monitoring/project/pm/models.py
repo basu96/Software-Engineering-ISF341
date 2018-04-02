@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import AbstractUser
+from django.db.models import Q
 
 class User(AbstractUser):
 
@@ -43,3 +44,29 @@ class User(AbstractUser):
         null = True,
         default = 'Other',
     )
+
+class Appointment(models.Model):
+    # pass
+    id = models.AutoField(primary_key = True)
+    patient = models.ForeignKey(
+        User,
+        on_delete = models.CASCADE,
+        limit_choices_to = Q(user_type = 'patient'),
+        related_name = 'patient',
+        null = True,
+    )
+    doctor = models.ForeignKey(
+        User,
+        on_delete = models.CASCADE,
+        limit_choices_to = Q(user_type = 'patient'),
+        related_name = 'doctor',
+        null = True,
+    )
+    date_time = models.DateTimeField(auto_now = True)
+    blood_pressure = models.CharField(max_length = 10, null = True)
+    breath_rate = models.PositiveSmallIntegerField(null = True) # units: bpm
+    pulse_rate = models.PositiveSmallIntegerField(null = True) # units: bpm
+    body_temperature = models.DecimalField(max_digits = 5, decimal_places = 2, null=True)
+    report = models.TextField(max_length = 500, null = True)
+    prescription = models.TextField(max_length = 500, null = True)
+    prognosis = models.TextField(max_length = 500, null = True)
