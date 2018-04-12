@@ -1,9 +1,11 @@
-<div class="form">
-    <div id="patient_form">
-        {{ patient_form.as_p }}
-    </div>
+<form action="/auth/patient/" method="POST" enctype="multipart/form=data">
+    {% csrf_token %}
+    {{ patient_form.as_p }}
+    <input type="submit" value="Login as Patient">
+</form>
 
-    <div id="staff_form">
-        {{ staff_form.as_p }}
-    </div>
-</div>
+<form action="/auth/staff/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ staff_form.as_p }}
+    <input type="submit" value="Login as Staff">
+</form>

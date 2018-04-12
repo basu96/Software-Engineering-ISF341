@@ -20,5 +20,5 @@ from pm import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('pm.urls')),
-    path('login/',views.login,name = 'login'),
+    path('login/',views.login_view,name = 'login'),
 ]
