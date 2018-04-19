@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .forms import PatientLoginForm, StaffLoginForm
+from .forms import PatientLoginForm, StaffLoginForm, PatientCreateForm
 from django.contrib.auth import authenticate, login
 from datetime import datetime
 from .models import User
@@ -55,3 +55,82 @@ def auth_staff(request):
                 return HttpResponse('Login failed')
     else:
         return HttpResponse('/auth/login')
+
+def patient_view(request, uname):
+    usr = get_object_or_404(User, username = uname)
+    context = {
+        'user': usr,
+    }
+    return render(request, 'app/patient_view.html', context)
+
+def patient_create(request):
+
+    if request.method == 'GET':
+        form = PatientCreateForm()
+        context = {
+            'form': form,
+        }
+        form.first_name = 'hello'
+        return render(request, 'app/patient_create.html', context)
+
+    elif request.method == 'POST':
+        form = PatientCreateForm(request.POST)
+        if form.is_valid:
+
+            usr = User.objects.create(
+                username = form['username'].value(),
+                user_type = 1, # patient user type
+                first_name = form['first_name'].value(),
+                last_name = form['last_name'].value(),
+                phone = form['phone'].value(),
+                email = form['email'].value(),
+                gender = form['gender'].value(),
+                blood_group = form['blood_group'].value(),
+                date_of_birth = form['date_of_birth'].value(),
+            )
+            usr.save()
+
+        return HttpResponse('Form submitted')
+
+def patient_remove(remove, uname):
+    usr = get_object_or_404(User, username = uname)
+    usr.delete()
+    return HttpResponse('User removed')
+
+def patient_edit(request, uname):
+    usr = get_object_or_404(User, username = uname)
+
+    if request.method == 'GET':
+        values = {
+            'username': usr.username,
+            'first_name': usr.first_name,
+            'last_name': usr.first_name,
+            'phone': usr.phone,
+            'email': usr.email,
+            'gender': usr.gender,
+            'blood_group': usr.blood_group,
+            'date_of_birth': usr.date_of_birth,
+        }
+
+        form = PatientCreateForm(initial=values)
+        context = {
+            'form': form,
+        }
+        return render(request, 'app/patient_edit.html', context)
+
+    elif request.method == 'POST':
+        form = PatientCreateForm(request.POST)
+        if form.is_valid:
+
+            usr.first_name = form['first_name'].value()
+            usr.last_name = form['last_name'].value()
+            usr.phone = form['phone'].value()
+            usr.email = form['email'].value()
+            usr.gender = form['gender'].value()
+            usr.blood_group = form['blood_group'].value()
+
+            dt = datetime.strptime(form['date_of_birth'].value(),'%Y-%m-%d').date()
+            usr.date_of_birth = dt
+            usr.save()
+
+        return HttpResponse('Form submitted')
