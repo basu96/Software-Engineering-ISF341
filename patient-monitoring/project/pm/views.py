@@ -137,3 +137,16 @@ def patient_edit(request, uname):
 
 def test_view(request):
     return render(request, 'pm/testview.html')
+
+def appointment_view(request, id):
+    return HttpResponse('pass')
+
+def appointment_create(request):
+    return HttpResponse('pass')
+
+def appointment_remove(request, id):
+    return HttpResponse('pass')
+
+def appointment_edit(request, id):
+    return HttpResponse('pass')
+    
