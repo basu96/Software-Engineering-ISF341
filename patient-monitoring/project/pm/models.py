@@ -39,7 +39,7 @@ class User(AbstractUser):
         ('Other','Other'),
     )
     blood_group = models.CharField(
-        max_length = 3,
+        max_length = 5,
         choices = BLOOD_GROUP_CHOICES,
         null = True,
         default = 'Other',
