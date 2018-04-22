@@ -134,3 +134,6 @@ def patient_edit(request, uname):
             usr.save()
 
         return HttpResponse('Form submitted')
+
+def test_view(request):
+    return render(request, 'pm/testview.html')
