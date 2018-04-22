@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .forms import PatientLoginForm, StaffLoginForm, PatientCreateForm
+from .forms import PatientLoginForm, StaffLoginForm, PatientCreateForm, AppointmentCreateForm
 from django.contrib.auth import authenticate, login
 from datetime import datetime
 from .models import User, Appointment
@@ -70,7 +70,6 @@ def patient_create(request):
         context = {
             'form': form,
         }
-        form.first_name = 'hello'
         return render(request, 'pm/patient_create.html', context)
 
     elif request.method == 'POST':
@@ -146,7 +145,19 @@ def appointment_view(request, id):
     return render(request, 'pm/appointment_view.html', context)
 
 def appointment_create(request):
-    return HttpResponse('pass')
+
+    if request.method == 'GET':
+        form = AppointmentCreateForm()
+        context = {
+            'form': form,
+        }
+        return render(request, 'pm/appointment_create.html', context)
+
+    elif request.method == 'POST':
+        form = AppointmentCreateForm(request.POST)
+        if form.is_valid:
+            form.save()
+        return HttpResponse('Form submitted')
 
 def appointment_remove(request, id):
     return HttpResponse('pass')

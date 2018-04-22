@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import User, Appointment
 import datetime
 
 class PatientLoginForm(forms.Form):
@@ -44,3 +44,18 @@ class PatientCreateForm(forms.Form):
     date_of_birth = forms.DateField(
         widget = forms.SelectDateWidget(years=dob_range)
     )
+
+class AppointmentCreateForm(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        fields = [
+            'patient',
+            'doctor',
+            'blood_pressure',
+            'breath_rate',
+            'pulse_rate',
+            'body_temperature',
+            'report',
+            'prescription',
+            'prognosis',
+        ]
