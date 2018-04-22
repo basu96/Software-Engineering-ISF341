@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .forms import PatientLoginForm, StaffLoginForm, PatientCreateForm
 from django.contrib.auth import authenticate, login
 from datetime import datetime
-from .models import User
+from .models import User, Appointment
 
 def home(request):
     return HttpResponse('test_response')
@@ -139,7 +139,11 @@ def test_view(request):
     return render(request, 'pm/testview.html')
 
 def appointment_view(request, id):
-    return HttpResponse('pass')
+    appt = get_object_or_404(Appointment, pk = id)
+    context = {
+        'appt': appt,
+    }
+    return render(request, 'pm/appointment_view.html', context)
 
 def appointment_create(request):
     return HttpResponse('pass')
@@ -149,4 +153,3 @@ def appointment_remove(request, id):
 
 def appointment_edit(request, id):
     return HttpResponse('pass')
-    
