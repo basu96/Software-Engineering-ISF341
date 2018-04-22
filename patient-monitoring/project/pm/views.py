@@ -61,7 +61,7 @@ def patient_view(request, uname):
     context = {
         'user': usr,
     }
-    return render(request, 'app/patient_view.html', context)
+    return render(request, 'pm/patient_view.html', context)
 
 def patient_create(request):
 
@@ -71,7 +71,7 @@ def patient_create(request):
             'form': form,
         }
         form.first_name = 'hello'
-        return render(request, 'app/patient_create.html', context)
+        return render(request, 'pm/patient_create.html', context)
 
     elif request.method == 'POST':
         form = PatientCreateForm(request.POST)
@@ -116,7 +116,7 @@ def patient_edit(request, uname):
         context = {
             'form': form,
         }
-        return render(request, 'app/patient_edit.html', context)
+        return render(request, 'pm/patient_edit.html', context)
 
     elif request.method == 'POST':
         form = PatientCreateForm(request.POST)
