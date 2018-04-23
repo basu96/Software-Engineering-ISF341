@@ -7,6 +7,8 @@ from .models import User, Appointment
 
 def home(request):
     return HttpResponse('test_response')
+def sample(request):
+    return render(request,'pm/try.html')    
 
 def login_view(request):
     patient_form = PatientLoginForm()
