@@ -61,7 +61,7 @@ def patient_view(request, uname):
     appointments = Appointment.objects.filter(patient=usr)
     context = {
         'user': usr,
-        'appointments': appointments, 
+        'appointments': appointments,
     }
     return render(request, 'pm/patient_view.html', context)
 
@@ -146,10 +146,14 @@ def appointment_view(request, id):
     }
     return render(request, 'pm/appointment_view.html', context)
 
-def appointment_create(request):
+def appointment_create(request, uname = None):
 
     if request.method == 'GET':
-        form = AppointmentCreateForm()
+        if uname:
+            patient = User.objects.get(username = uname)
+            form = AppointmentCreateForm(initial = {'patient': patient})
+        else:
+            form = AppointmentCreateForm()
         context = {
             'form': form,
         }
