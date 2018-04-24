@@ -164,3 +164,10 @@ def appointment_remove(request, id):
 
 def appointment_edit(request, id):
     return HttpResponse('pass')
+
+def patient_view_all(request):
+    patients = User.objects.filter(user_type = 1)
+    context = {
+        'patients': patients,
+    }
+    return render(request, 'pm/all_patients.html', context)

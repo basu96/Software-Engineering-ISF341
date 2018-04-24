@@ -1,0 +1,26 @@
+{% extends "pm/base.html" %}
+
+{% block title %}
+    Patients
+{% endblock %}
+
+{% block body %}
+
+    {% for patient in patients %}
+        {# TODO: Create divs and display data neatly using table tag #}
+
+        <a href="/patient/view/{{ patient.username }}/">
+            {{ patient.first_name }}<br>
+            {{ patient.last_name }}<br>
+        </a>
+
+        {{ patient.email }}<br>
+        {{ patient.username }}<br>
+        {{ patient.phone }}<br>
+        {{ patient.date_of_birth }}<br>
+        {{ patient.gender }}<br>
+        {{ patient.blood_group }}<br>
+        <br>
+    {% endfor %}
+
+{% endblock %}
