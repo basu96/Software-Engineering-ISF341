@@ -58,8 +58,10 @@ def auth_staff(request):
 
 def patient_view(request, uname):
     usr = get_object_or_404(User, username = uname)
+    appointments = Appointment.objects.filter(patient=usr)
     context = {
         'user': usr,
+        'appointments': appointments, 
     }
     return render(request, 'pm/patient_view.html', context)
 

@@ -1,3 +1,30 @@
-<div class="user">
-    {{ user }}
+{% extends "pm/base.html" %}
+
+{% block title %}
+    Patient - {{ user.first_name }} {{ user.last_name }}
+{% endblock %}
+
+
+{% block body %}
+<div class="user-details">
+    {{ user.username }}<br>
+    {{ user.email }}<br>
+    {{ user.phone }}<br>
+    {{ user.date_of_birth }}<br>
+    {{ user.gender }}<br>
+    {{ user.blood_group }}<br>
 </div>
+
+<div class="edit-btn">
+    <a href="/patient/edit/{{ user.username }}"><button>Edit</button></a>
+</div>
+
+<br>
+<div class="user-appointments" >
+    {% for appt in appointments  %}
+        <a href="/appointment/view/{{ appt.id }}">{{ appt }}</appt>
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}
