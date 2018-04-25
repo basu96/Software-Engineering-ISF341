@@ -1,50 +1,29 @@
+{% extends "pm/base.html" %}
 
-<!DOCTYPE html>
-<!-- saved from url=(0077)https://d396qusza40orc.cloudfront.net/phoenixassets/web-frameworks/index.html -->
-<html lang="en">
-    <head>
-        <title>Patient Monitoring</title>
-        <meta charset="utf-8">
-        {% load staticfiles %}
-        <link rel="stylesheet" href= "{% static 'css/bootstrap.min.css'%}" type='text/css'/>
-        <link rel="stylesheet" href= "{% static 'css/bootstrap-grid.css'%}" type='text/css'/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head 
-            content must come *after* these tags 
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        
-                Bootstrap 
-        
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-        <link href="css/mystyles.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/bootstrap-social.css" rel="stylesheet">-->
-        
 
-    </head>
+{% block s %}
     
-
-    <body>
         <header class="jumbotron">
             <div>
                 <p>Welcome to the website</p>
-                {% block content %}
                 
-                {% endblock %}
             </div>
          </header>
-        <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
-            {% csrf_token %}
-            {{ patient_form.as_p }}
-            <input type="submit" value="Login as Patient">
-        </form>
-
+         <div class="container">
+            <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
+                {% csrf_token %}
+                {{ patient_form.username}}
+                {{ patient_form.as_p }}
+                
+                <input type="submit" value="Login as Patient">
+            </form>
+        </div>
         <form action="/auth/staff/" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
            
             {{ staff_form.as_p }}
             <input type="submit" value="Login as Staff">
         </form>
-    </body>    
-</html>
+      
+{% endblock %}
+

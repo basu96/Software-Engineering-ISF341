@@ -1,5 +1,19 @@
-<form action="/patient/create/" method="POST" enctype="multipart/form=data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create">
-</form>
+{% extends "pm/base.html" %}
+{% block s %}
+  
+<div class="container">    
+    <div class="row ">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-8">
+            <form action="/patient/create/" method="POST" enctype="multipart/form=data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Create">
+            </form>
+         </div>
+    </div>
+</div>
+    
+</div>    
+{% endblock %}
