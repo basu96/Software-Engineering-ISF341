@@ -46,6 +46,7 @@
                 <div class="col-sm-5" style="background: aquamarine">
                         <p style="margin: 15px"></p>
                     <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
+                        {% csrf_token %}
                         <div id="manual-render">
                                 {% for field in patient_form %}
 

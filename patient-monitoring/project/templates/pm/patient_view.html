@@ -1,13 +1,13 @@
 {% extends "pm/base.html" %}
 
 {% block s %}
-    
+
 
 
 <div class="container">
         <p style="margin: 40px"></p>
         <div class="row">
-                
+
                 <div class="col-sm-7">
                     <div class="card">
                         <div class="row">
@@ -15,16 +15,16 @@
                         <div class="col-sm-3"><h6>Name:</h6> </div>
                         <div class="col-sm-1"></div>
                         <div class="col-sm-6">
-                        
+
                             {{ user.first_name }} {{ user.last_name }}
-                        
+
                         </div>
                         </div>
                     </div>
                     </div>
             </div>
             <div class="row">
-                   
+
                     <div class="col-sm-7">
                         <div class="card">
                             <div class="row">
@@ -32,16 +32,16 @@
                             <div class="col-sm-3"><h6>Username:</h6> </div>
                             <div class="col-sm-1"></div>
                             <div class="col-sm-6">
-                            
+
                                 {{ user.email }}
-                            
+
                             </div>
                             </div>
                         </div>
                         </div>
                 </div>
                 <div class="row">
-                        
+
                         <div class="col-sm-7">
                             <div class="card">
                                 <div class="row">
@@ -49,16 +49,16 @@
                                 <div class="col-sm-3"><h6>Phone:</h6> </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-6">
-                                
+
                                     {{ user.phone }}
-                                
+
                                 </div>
                                 </div>
                             </div>
                             </div>
                     </div>
                     <div class="row">
-                           
+
                             <div class="col-sm-7">
                                 <div class="card">
                                     <div class="row">
@@ -66,16 +66,16 @@
                                     <div class="col-sm-3"><h6>DOB:</h6> </div>
                                     <div class="col-sm-1"></div>
                                     <div class="col-sm-6">
-                                    
+
                                         {{ user.date_of_birth }}
-                                    
+
                                     </div>
                                     </div>
                                 </div>
                                 </div>
-                        </div>  
+                        </div>
                         <div class="row">
-                               
+
                                 <div class="col-sm-7">
                                     <div class="card">
                                         <div class="row">
@@ -83,16 +83,16 @@
                                         <div class="col-sm-3"><h6>Gender:</h6> </div>
                                         <div class="col-sm-1"></div>
                                         <div class="col-sm-6">
-                                        
+
                                             {{ user.gender }}
-                                        
+
                                         </div>
                                         </div>
                                     </div>
                                     </div>
-                            </div> 
+                            </div>
                             <div class="row">
-                                   
+
                                     <div class="col-sm-7">
                                         <div class="card">
                                             <div class="row">
@@ -100,15 +100,15 @@
                                             <div class="col-sm-3"><h6>Blood Group:</h6> </div>
                                             <div class="col-sm-1"></div>
                                             <div class="col-sm-6">
-                                            
+
                                                 {{ user.blood_group }}
-                                            
+
                                             </div>
                                             </div>
                                         </div>
                                         </div>
-                                </div>      
-            
+                                </div>
+
         <p style="margin: 40px"></p>
         <div class="row">
             <div class="col-sm-0"></div>
@@ -119,19 +119,44 @@
                     </div>
                 </div>
                     <br>
-                <div class="row">    
+
+
+                <div class="row">
                     <div class="user-appointments" >
-                        {% for appt in appointments  %}
-                            <a href="/appointment/view/{{ appt.id }}">{{ appt }}</appt>
+                        <a href="/appointment/view/{{ appt.id }}">{{ appt }}</a>
+                            {% for appt in appointments  %}
                             <br>
+
+
+                            <table>
+                                <tr>
+                                    <th>Appointment ID</th>
+                                    <th>Date/Time</th>
+                                    <th>Doctor</th>
+                                    <th>Report</th>
+                                </tr>
+                                {% for appt in appointments  %}
+                                <tr>
+                                    <td> {{ appt.id }} </td>
+                                    <td> {{ appt.date_time }} </td>
+                                    <td> {{ appt.doctor }} </td>
+                                    <td> {{ appt.report }} </td>
+
+                                </tr>
+                                {% endfor %}
+                            </table>
+
+
                         {% endfor %}
                     </div>
                 </div>
+
+
                 <div class="row">
                     <div id="new-appt">
                         <a href="/appointment/create/{{ user.username }}/"><button class="btn btn-primary">New Appointment</button></a>
                     </div>
-                </div> 
-        </div>    
-    </div>       
+                </div>
+        </div>
+    </div>
 {% endblock %}

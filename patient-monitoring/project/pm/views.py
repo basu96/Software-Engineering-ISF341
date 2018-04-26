@@ -32,7 +32,7 @@ def auth_patient(request):
                 user=user[0]
                 if(str(user.date_of_birth) == str(dob)):
                     login(request, user)
-                    return redirect('/home/')
+                    return redirect('/patient/view/' + user.username)
                 else:
                     return HttpResponse('log in failed')
             else:
