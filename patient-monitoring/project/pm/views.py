@@ -171,9 +171,10 @@ def appointment_create(request, uname = None):
 
     elif request.method == 'POST':
         form = AppointmentCreateForm(request.POST)
+        print(form.errors)
         if form.is_valid:
             form.save()
-        return HttpResponse('Form submitted')
+        return redirect('/home/')
 
 def appointment_remove(request, id):
     return HttpResponse('pass')

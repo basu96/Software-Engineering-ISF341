@@ -14,7 +14,7 @@
                         {% csrf_token %}
                     {% for field in form %}
 
-                        {% if field.label != 'Doctor' %}
+                        {# {% if field.label != 'Doctor' %} #}
 
                         <div class="fieldWrapper">
                             <div class="row"  >
@@ -32,7 +32,7 @@
                         </div>
 
                         <p style="padding: 10px";></p>
-                        {% endif %}
+                        {# {% endif %} #}
 
                     {% endfor %}
                 </div>
