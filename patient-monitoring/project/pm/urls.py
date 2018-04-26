@@ -5,7 +5,6 @@ from pm import views
 urlpatterns = [
     path('',views.home,name='home'),
     path('login',views.login_view,name='login'),
-    path('sample',views.sample,name='sample'),
     path('auth/patient/', views.auth_patient, name = 'auth_patient'),
     path('auth/staff/', views.auth_staff, name = 'auth_staff'),
     path('testlink/', views.test_view, name = 'testlink'),
