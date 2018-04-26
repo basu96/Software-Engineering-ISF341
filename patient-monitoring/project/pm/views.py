@@ -1,14 +1,14 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .forms import PatientLoginForm, StaffLoginForm, PatientCreateForm, AppointmentCreateForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from .models import User, Appointment
 
+@login_required(login_url = '/login/')
 def home(request):
-    return HttpResponse('test_response')
-def sample(request):
-    return render(request,'pm/try.html')    
+    return render(request, 'pm/home.html')
 
 def login_view(request):
     patient_form = PatientLoginForm()
@@ -32,13 +32,13 @@ def auth_patient(request):
                 user=user[0]
                 if(str(user.date_of_birth) == str(dob)):
                     login(request, user)
-                    return HttpResponse('logged in successfully')
+                    return redirect('/home/')
                 else:
                     return HttpResponse('log in failed')
             else:
-                return HttpResponse('Invalid username')
+                return redirect('/login/')
     else:
-        return HttpResponse('/auth/login')
+        return redirect('/login/')
 
 def auth_staff(request):
     form = StaffLoginForm(request.POST)
@@ -52,11 +52,11 @@ def auth_staff(request):
 
             if user:
                 login(request, user)
-                return HttpResponse('Login successful')
+                return redirect('/home/')
             else:
-                return HttpResponse('Login failed')
+                return redirect('/login/')
     else:
-        return HttpResponse('/auth/login')
+        return redirect('/login/')
 
 def patient_view(request, uname):
     usr = get_object_or_404(User, username = uname)
@@ -141,6 +141,14 @@ def patient_edit(request, uname):
 def test_view(request):
     return render(request, 'pm/testview.html')
 
+def appointment_view_all(request):
+    user = request.user
+    appts = Appointment.objects.filter(doctor = user)
+    context = {
+        'appointments': appts,
+    }
+    return render(request, 'pm/appointments_all.html', context)
+
 def appointment_view(request, id):
     appt = get_object_or_404(Appointment, pk = id)
     context = {
@@ -149,13 +157,13 @@ def appointment_view(request, id):
     return render(request, 'pm/appointment_view.html', context)
 
 def appointment_create(request, uname = None):
-
+    user = request.user
     if request.method == 'GET':
         if uname:
             patient = User.objects.get(username = uname)
-            form = AppointmentCreateForm(initial = {'patient': patient})
+            form = AppointmentCreateForm(initial = {'patient': patient, 'doctor': user})
         else:
-            form = AppointmentCreateForm()
+            form = AppointmentCreateForm(initial = {'doctor': user})
         context = {
             'form': form,
         }
@@ -179,3 +187,7 @@ def patient_view_all(request):
         'patients': patients,
     }
     return render(request, 'pm/all_patients.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('/login/')

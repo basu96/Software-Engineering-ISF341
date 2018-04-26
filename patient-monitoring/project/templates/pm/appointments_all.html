@@ -1,0 +1,24 @@
+{% extends "pm/base.html" %}
+
+{% block title %}
+    Appointments
+{% endblock %}
+
+{% block body %}
+    {% for appt in appointments %}
+        {{ appt.patient }}<br>
+        {{ appt.doctor }}<br>
+        {{ appt.date_time }}<br>
+        {{ appt.blood_pressure }}<br>
+        {{ appt.breath_rate }}<br>
+        {{ appt.pulse_rate }}<br>
+        {{ appt.body_temperature }}<br>
+        {{ appt.report }}<br>
+        {{ appt.prescription }}<br>
+        {{ appt.prognosis }}<br>
+        <br>
+    {% endfor %}
+
+    <a href="/logout/"> Logout </a>
+
+{% endblock %}
