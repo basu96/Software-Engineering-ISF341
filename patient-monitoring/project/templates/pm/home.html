@@ -1,11 +1,14 @@
 {% extends "pm/base.html" %}
-
-{% block title %}
-    Dashboard
-{% endblock %}
-
-{% block body %}
-    Random text</br>
-    <a href="/appointment/"> Appointments </a><br>
-    <a href="/patient/"> Patients </a>
+{% block s %}
+<div class="container">
+  <div class="row">
+        {% load staticfiles %}
+      <div class="col-sm-5" >
+            <span class="glyphicon glyphicon-search"></span>  
+      </div>
+      <div class="col-sm-6">
+            {% load static %} <img id="bg" src="{% static "welcome1.jpg" %}" alt="Hi!" />
+    </div>
+  </div> 
+</div>
 {% endblock %}
