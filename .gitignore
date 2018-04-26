@@ -35,4 +35,4 @@ scratch
 env
 
 # SQLite database(s)
-*.sqlite3
+#*.sqlite3
