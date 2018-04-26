@@ -60,8 +60,10 @@ def auth_staff(request):
 
 def patient_view(request, uname):
     usr = get_object_or_404(User, username = uname)
+    appointments = Appointment.objects.filter(patient=usr)
     context = {
         'user': usr,
+        'appointments': appointments,
     }
     return render(request, 'pm/patient_view.html', context)
 
@@ -146,10 +148,14 @@ def appointment_view(request, id):
     }
     return render(request, 'pm/appointment_view.html', context)
 
-def appointment_create(request):
+def appointment_create(request, uname = None):
 
     if request.method == 'GET':
-        form = AppointmentCreateForm()
+        if uname:
+            patient = User.objects.get(username = uname)
+            form = AppointmentCreateForm(initial = {'patient': patient})
+        else:
+            form = AppointmentCreateForm()
         context = {
             'form': form,
         }
@@ -166,3 +172,10 @@ def appointment_remove(request, id):
 
 def appointment_edit(request, id):
     return HttpResponse('pass')
+
+def patient_view_all(request):
+    patients = User.objects.filter(user_type = 1)
+    context = {
+        'patients': patients,
+    }
+    return render(request, 'pm/all_patients.html', context)

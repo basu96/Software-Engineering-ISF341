@@ -1,17 +1,46 @@
 {% extends "pm/base.html" %}
 {% block s %}
-  
+<p style="margin: 20px"></p> 
 <div class="container">    
     <div class="row ">
         <div class="col-sm-3">
         </div>
-        <div class="col-sm-8">
-            <form action="/patient/create/" method="POST" enctype="multipart/form=data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" value="Create">
-            </form>
-         </div>
+        <div class="col-sm-7">
+                
+            <div class="card" style="background: aquamarine">
+                <div class="row">
+                        <div class="col-sm-1">
+                            </div>
+                        <div class="col-sm-11">    
+                        <form action="/patient/create/" method="POST" enctype="multipart/form=data">
+                            <div id="manual-render">
+                                    <p style="margin: 40px"></p>
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                    
+                                        <div class="fieldWrapper">
+                                            <div class="row" >
+                                                <div class="col-sm-4" >
+                                                       <h6> {{ field.label_tag }}</h6>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                        {{ field }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p style="padding: 10px";></p>
+                                    {% endfor %}
+                                </div>
+                    <div class="row">
+                            
+                        <div class="col-sm-7">      
+                            <input class="btn btn-primary" type="submit" value="Create">
+                        </div>     
+                        </div>
+                        <p style="margin: 20px"></p>          
+                        </form>
+                    </div>    
+            </div>
     </div>
 </div>
     

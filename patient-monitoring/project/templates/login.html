@@ -3,27 +3,63 @@
 
 {% block s %}
     
-        <header class="jumbotron">
-            <div>
-                <p>Welcome to the website</p>
-                
-            </div>
-         </header>
+       <p style="margin: 40px"></p>
          <div class="container">
-            <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
-                {% csrf_token %}
-                {{ patient_form.username}}
-                {{ patient_form.as_p }}
+            <div class="row">
+                <div class="col-sm-5" style="background: aquamarine">
+                        <p style="margin: 15px"></p>
+                    <form action="/auth/staff/" method="POST" enctype="multipart/form-data">
+                        <div id="manual-render">
+                            {% csrf_token %}
+                                {% for field in staff_form %}
+            
+                                    <div class="fieldWrapper">
+                                        <div class="row" >
+                                            <div class="col-sm-4" >
+                                                   <h6>{{ field.label_tag }}</h6>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                    {{ field }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p style="padding: 10px";></p>
+                                {% endfor %}
+                            </div>
+                            <input type="submit"  class="btn btn-primary" value="Login as Staff">
+                    </form>
+                    <p style="margin: 5px"></p>
+                </div>
                 
-                <input type="submit" value="Login as Patient">
-            </form>
+                <div class="col-sm-2">
+
+                </div>       
+                <div class="col-sm-5" style="background: aquamarine">
+                        <p style="margin: 15px"></p>
+                    <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
+                        <div id="manual-render">
+                                {% for field in patient_form %}
+            
+                                    <div class="fieldWrapper">
+                                        <div class="row" >
+                                            <div class="col-sm-4" >
+                                                   <h6> {{ field.label_tag }}</h6>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                    {{ field }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p style="padding: 10px";></p>
+                                {% endfor %}
+                            </div>
+                        <input type="submit" class="btn btn-primary" value="Login as Patient">
+                        <p style="margin: 5px"></p>
+                    </form>
+                </div>
+            </div>  
+              
         </div>
-        <form action="/auth/staff/" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-           
-            {{ staff_form.as_p }}
-            <input type="submit" value="Login as Staff">
-        </form>
       
 {% endblock %}
 

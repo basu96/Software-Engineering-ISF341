@@ -1,11 +1,45 @@
 {% extends "pm/base.html" %}
 
-{% block body %}
+{% block s %}
+<div class="container" >
+        <p style="padding:10px;" ></p>
+        <div class="row" style="background: aquamarine">
+                
+            <form action="/appointment/create/" method="POST" enctype="multipart/form=data">
+                
+                
 
-    <form action="/appointment/create/" method="POST" enctype="multipart/form=data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Create">
-    </form>
+                <div id="manual-render">
+                        <p style="padding: 10px";></p>
+                        {% csrf_token %}
+                    {% for field in form %}
 
+                        <div class="fieldWrapper">
+                            <div class="row"  >
+                                <div class="col-sm-1" >
+                                    </div>
+                                <div class="col-sm-3" >
+                                        
+                                        <h6>{{ field.label_tag }}</h6>
+                                </div>
+                                <div class="col-sm-8">
+                                        
+                                        {{ field }}
+                                </div>
+                            </div>
+                        </div>
+                        <p style="padding: 10px";></p>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <div class="col-sm-11">
+
+                    </div>
+                    <div class=col-sm-1>
+                        <input style="font-size:150%; background: rgb(56, 58, 167);" class="btn btn-primary" type="submit" value="Create">
+                    </div>    
+                </div>        
+            </form>
+    </div>
+</div>    
 {% endblock %}

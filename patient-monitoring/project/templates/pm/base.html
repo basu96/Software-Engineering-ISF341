@@ -11,34 +11,48 @@
         {% load staticfiles %}
         <link rel="stylesheet" href= "{% static 'css/bootstrap.min.css'%}" type='text/css'/>
         <link rel="stylesheet" href= "{% static 'css/bootstrap-grid.css'%}" type='text/css'/>
+        <link rel="stylesheet" href= "{% static 'css/test.css'%}" type='text/css'/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    
-    <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-    
-                </div>
-                <div class="col-sm-8">
-                    <ul class="nav justify" >
-                    <li class="nav-item ">
-                        <a class="nav-link active " href="#">Active</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Disabled</a>
-                    </li>
+    <body   style="background-color: hsl(224, 47%, 52%); ">
+     
+        <div class="container-fluid" style="background: black"  >
+                
+                <div class="row " >
+                    
+                    <div class="navbar navbar-inverse"  class="col-sm-4" >
+                        <ul class="nav"   >
+                        <li class="nav-item " >
+                            <a class="nav-link active " href="/patient/" style="color: #8847a1;">All Patients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/appointment/create" style="color: #8847a1;">Create Appointment</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/patient/create/" style="color: #8847a1;">Add Patient</a>
+                        </li>
                     </ul>
+                    </div> 
+                    <div class="col-sm-7" >
+
+                    </div>   
+                        <div class="navbar"  class="col-sm-1">
+                                <ul class="nav">
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="/login" style="color: #750d12;">Log Out</a>
+                                    </li>
+                                </ul>     
+                        </div>
+                        
+                    
                 </div>
-            </div>
-            <p style="padding:20px;"></p>
-    </div>
+            
+        </div>
+        
+
     {% block s %}
     {% endblock %}
+    </body>
     </html>
