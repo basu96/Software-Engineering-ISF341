@@ -25,7 +25,17 @@ class UserAdmin(UserAdmin):
     ]
 
 class AppointmentAdmin(admin.ModelAdmin):
-    pass
+    list_display = [
+        'id',
+        'patient',
+        'doctor',
+        'date_time',
+        'report',
+    ]
+    list_display_links = [
+        'id',
+        'date_time',
+    ]
 
 admin.site.register(User, UserAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
