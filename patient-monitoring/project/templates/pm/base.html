@@ -17,40 +17,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock %}
     </head>
-    {% load staticfiles %}
-    <body id="bg" style="background-image: url('{% static "orig_67158.jpg"%}')"  >
+    <body>
 
         <div class="container-fluid" style = "background: rgb(10, 8, 3)" >
 
                 <div class="row " >
-                    <div class="col-ms-4">
-                        <nav class="navbar navbar-inverse " >
-                            <ul class="nav"  >
-                                <li class="nav-item" >
-                                    <a class="nav-link active " href="/patient/" style="color: #ebe6ee;">All Patients</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/appointment/create" style="color: #ebe6ee;">Create Appointment</a>
-                                </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/patient/create/" style="color: #ebe6ee;">Add Patient</a>
+                    <nav class="navbar  sticky-top navbar-expand-sm col-sm-4"  >
+                        <ul class="nav">
+                            <li class="nav-item" >
+                                <a class="nav-link active " href="/patient/" style="color: #ebe6ee;">All Patients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/appointment/create" style="color: #ebe6ee;">Create Appointment</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/patient/create/" style="color: #ebe6ee;">Add Patient</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="col-sm-7" ></div>
+                    <div class="navbar sticky-top"  class="col-sm-1">
+                            <ul class="nav">
+                                <li class="nav-item ">
+                                    <a id="logout" class="nav-link " href="/login" style="color: #ffffff; " >Log Out </a>
                                 </li>
                             </ul>
-                        </nav>
                     </div>
-                    <div class="col-sm-6" ></div>
-                    <div class="col-sm-2">
-                        <nav class="navbar navbar-inverse " >
-                            
-                                    <ul class="nav" >
-                                        <li class="nav-item ">
-                                            <a class="nav-link " href="/login" style="color: #ffffff; " >Log Out </a>
-                                        </li>
-                                    </ul>
-                            
-                        </nav>
-                    </div>
+
 
                 </div>
 

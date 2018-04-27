@@ -143,6 +143,7 @@ def patient_edit(request, uname):
 def test_view(request):
     return render(request, 'pm/testview.html')
 
+@login_required(login_url='/login/')
 def appointment_view_all(request):
     user = request.user
     appts = Appointment.objects.filter(doctor = user)
