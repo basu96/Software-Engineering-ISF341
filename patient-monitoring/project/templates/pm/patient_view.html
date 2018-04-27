@@ -58,50 +58,39 @@
                         <a href="/patient/edit/{{ user.username }}"><button class="btn btn-warning">Edit</button></a>
                     </div>
                 </div>
-                    <br>
+
+                <br>
+
                 <div class="row">
-                    <div class="appt" >
-                        {% for appt in appointments  %}
+                    
+                    <div class="appt">
+                        <table>
+                            <tr>
+                                <th> ID </th>
+                                <th> Doctor </th>
+                                <th> Date/time of Appointment </th>
+                            </tr>
 
-                            <p style="padding:5px;" ></p>
+                            {% for appt in appointments %}
+                            <tr>
+                                <td> {{ appt.id }} </td>
+                                <td> {{ appt.doctor }} </td>
+                                <td> <a href="/appointment/view/{{ appt.id }}"> {{ appt.date_time }} </a> </td>
+                            </tr>
+                            {% endfor %}
 
-                            <div class="row" >
-                                    <div class="col-sm-2">
-                                        </div>
-                                    <div class="col-sm-10">
-                                            <table>
-
-                                                    <tr>
-                                                      <td>Name</td>
-                                                      <td>
-                                                            {{ appt.patient.first_name }}
-                                                    </td>
-
-                                                    </tr>
-                                                    <tr>
-                                                      <td>Doctor</td>
-                                                      <td>{{ appt.doctor }}</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                     <td><a href="/appointment/view/{{ appt.id }}">Time, Date</a></td>
-                                                      <td>{{ appt.date_time }}</td>
-
-                                                    </tr>
-                                            </table>
-
-
-                                        </div>
-                        </div>
-                        {% endfor %}
+                        </table>
                     </div>
+
                 </div>
+
                 <p style="padding:5px;" ></p>
+
                 <div class="row">
                     <div id="new-appt">
                         <a href="/appointment/create/{{ user.username }}/"><button class="btn btn-primary">New Appointment</button>
                     </div>
                 </div>
 
-    </div>
+            </div>
 {% endblock %}
