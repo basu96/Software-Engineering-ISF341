@@ -4,12 +4,14 @@
         <p style="margin: 40px"></p>
         <div class="container">
 
-            <table>
-                <tr>
-                    <th>Username</th>
-                    <th>Name</th>
-                    <th>DOB</th>
-                </tr>
+            <table class="table table-striped table-bordered table-hover">
+                <thead class="light">
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>DOB</th>
+                    </tr>
+                </thead>
 
                 {% for patient in patients %}
                 <tr>
@@ -24,6 +26,8 @@
                 {% endfor %}
 
             </table>
+
+
         </div>
 
 
