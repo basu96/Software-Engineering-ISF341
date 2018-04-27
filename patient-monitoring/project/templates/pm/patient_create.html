@@ -1,17 +1,21 @@
 {% extends "pm/base.html" %}
 {% block s %}
 <p style="margin: 20px"></p> 
-<div class="container">    
-    <div class="row ">
+
+<div class="container" > 
+        {% load staticfiles %}   
+    <div class="row " >
         <div class="col-sm-3">
         </div>
         <div class="col-sm-7">
                 
-            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);" >
-                <div class="row">
+            <div class="card" id="card_bg" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);" >
+                   
+                <div class="row" >
                         <div class="col-sm-1">
                             </div>
-                        <div class="col-sm-11">    
+                            
+                        <div class="col-sm-11" > 
                         <form action="/patient/create/" method="POST" enctype="multipart/form=data">
                             <div id="manual-render">
                                     <p style="margin: 40px"></p>

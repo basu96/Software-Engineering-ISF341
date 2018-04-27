@@ -19,7 +19,7 @@ td{
     font-family: "Times New Roman", Times, serif;
 }
 #bg{
-    background-size: 1200px 800px;
+    background-size: 1800px 900px;
     background-repeat: no-repeat;
     background-position: top;
     background-attachment: fixed;
@@ -28,9 +28,22 @@ td{
     display: none;
 }
 .card-bg{
-    background-color: lightblue;
+    background-color: rgb(158, 198, 211);
     height: 300px;
 }
 #strong{
     font-weight: bold;
 }
+#login-head{
+    font: Verdana;
+}
+a{
+    color: purple;
+}
+a:hover{
+    color: hotpink;
+}
+#card_bg{
+    opacity: .85;
+}
+
