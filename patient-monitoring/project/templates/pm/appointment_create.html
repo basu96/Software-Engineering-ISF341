@@ -3,48 +3,58 @@
 {% block s %}
 <div class="container" >
         <p style="padding:10px;" ></p>
-        <div class="row" style="background: aquamarine">
+        
+        <div class="row" >
+                <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-8">
+                         
+                <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);" >
+                    <div class="row">
+                           
+                            <form action="/appointment/create/" method="POST" enctype="multipart/form=data">
 
-            <form action="/appointment/create/" method="POST" enctype="multipart/form=data">
+                                <div id="manual-render">
+                                        <p style="padding: 10px";></p>
+                                        {% csrf_token %}
+                                    {% for field in form %}
 
+                                        {# {% if field.label != 'Doctor' %} #}
 
+                                        <div class="fieldWrapper">
+                                            <div class="row"  >
+                                                <div class="col-sm-1" >
+                                                    </div>
+                                                <div class="col-sm-3" >
 
-                <div id="manual-render">
-                        <p style="padding: 10px";></p>
-                        {% csrf_token %}
-                    {% for field in form %}
+                                                        <h6>{{ field.label_tag }}</h6>
+                                                </div>
+                                                <div class="col-sm-8">
 
-                        {# {% if field.label != 'Doctor' %} #}
+                                                        {{ field }}
+                                                </div>
+                                            </div>
+                                        </div>
 
-                        <div class="fieldWrapper">
-                            <div class="row"  >
-                                <div class="col-sm-1" >
+                                        <p style="padding: 10px";></p>
+                                        {# {% endif %} #}
+
+                                    {% endfor %}
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-11">
+
                                     </div>
-                                <div class="col-sm-3" >
-
-                                        <h6>{{ field.label_tag }}</h6>
+                                    <div class=col-sm-1>
+                                        <input style="font-size:150%; background: rgb(56, 58, 167);" class="btn btn-primary" type="submit" value="Create">
+                                    </div>
                                 </div>
-                                <div class="col-sm-8">
-
-                                        {{ field }}
-                                </div>
-                            </div>
-                        </div>
-
-                        <p style="padding: 10px";></p>
-                        {# {% endif %} #}
-
-                    {% endfor %}
-                </div>
-                <div class="row">
-                    <div class="col-sm-11">
-
-                    </div>
-                    <div class=col-sm-1>
-                        <input style="font-size:150%; background: rgb(56, 58, 167);" class="btn btn-primary" type="submit" value="Create">
-                    </div>
-                </div>
-            </form>
+                            </form>
+                    
+                </div> 
+            </div>  
+            </div>     
     </div>
+   </div> 
 </div>
 {% endblock %}

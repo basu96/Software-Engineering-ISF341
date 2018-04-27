@@ -7,118 +7,51 @@
         {% csrf_token %}
 
 
-
+        <div class="container">
             {# TODO: Create divs and display data neatly using table tag #}
-
-                <div class="row">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <div class="row">
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-3"><h6>Name:</h6> </div>
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-3">
-                            <a href="/patient/view/{{ patient.username }}/">
-                                {{ patient.first_name }}
-                                {{ patient.last_name }}
-                            </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="row">
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-3"><h6>Email:</h6></div>
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-4">
-                                        {{ patient.email }}
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                    </div>
-                    <div class="row">
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="row">
-                                    <div class="col-sm-1"></div>
-                                    <div class="col-sm-3"><h6>Username:</h6> </div>
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-4">
-                                            {{ patient.username }}
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-4">
-                                    <div class="card">
-                                        <div class="row">
-                                        <div class="col-sm-1"></div>
-                                        <div class="col-sm-3"><h6>Phone:</h6> </div>
-                                        <div class="col-sm-3"></div>
-                                        <div class="col-sm-4">
-                                                {{ patient.phone }}
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col-sm-1"></div>
-                                    <div class="col-sm-4">
-                                        <div class="card">
-                                            <div class="row">
-                                            <div class="col-sm-1"></div>
-                                            <div class="col-sm-3"><h6>DOB:</h6></div>
-                                            <div class="col-sm-3"></div>
-                                            <div class="col-sm-4">
-                                                    {{ patient.date_of_birth }}
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                </div>
-                                <div class="row">
-                                        <div class="col-sm-1"></div>
-                                        <div class="col-sm-4">
-                                            <div class="card">
-                                                <div class="row">
-                                                <div class="col-sm-1"></div>
-                                                <div class="col-sm-3"><h6>Gender:</h6> </div>
-                                                <div class="col-sm-3"></div>
-                                                <div class="col-sm-4">
-                                                        {{ patient.gender }}
-                                                </div>
-                                                </div>
-                                            </div>
-                                            </div>
-                                    </div>
-                                    <div class="row">
-                                            <div class="col-sm-1"></div>
-                                            <div class="col-sm-4">
-                                                <div class="card">
-                                                    <div class="row">
-                                                    <div class="col-sm-1"></div>
-                                                    <div class="col-sm-3"><h6>Blood Group:</h6> </div>
-                                                    <div class="col-sm-3"></div>
-                                                    <div class="col-sm-4">
-                                                            {{ patient.blood_group }}
-                                                    </div>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                        </div>
-
+            <table>
+                    
+                    <tr>
+                      <td>Name:</td>
+                      <td><a href="/patient/view/{{ patient.username }}/">
+                        {{ patient.first_name }}
+                        {{ patient.last_name }}
+                    </a></td>
+                      
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td>{{ patient.email }}</td>
+                      
+                    </tr>
+                    <tr>
+                      <td>Username:</td>
+                      <td>{{ patient.username }}</td>
+                      
+                    </tr>
+                    <tr>
+                      <td>Phone:</td>
+                      <td>{{ patient.phone }}</td>
+                     
+                    </tr>
+                    <tr>
+                      <td>DOB</td>
+                      <td>{{ patient.date_of_birth }}</td>
+                     
+                    </tr>
+                    <tr>
+                      <td>Gender</td>
+                      <td>{{ patient.gender }}</td>
+                      
+                    </tr>
+                    <tr>
+                            <td>Blood Group</td>
+                            <td>{{ patient.blood_group }}</td>
+                            
+                          </tr>
+                  </table>
+                </div>      
+                
         <br>
         <br>
 
