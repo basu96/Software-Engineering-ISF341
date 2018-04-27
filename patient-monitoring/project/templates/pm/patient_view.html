@@ -2,49 +2,46 @@
 
 {% block s %}
 
-
-
 <div class="container">
         <p style="margin: 40px"></p>
-        <table>
+        <table class="table table-striped table-bordered table-hover">
 
                 <tr>
                   <td>Name:</td>
-                  <td>
+                  <td id="strong">
                     {{ user.first_name }} {{ user.last_name }}
                 </td>
 
                 </tr>
                 <tr>
                   <td>Email:</td>
-                  <td>{{ user.email }}</td>
+                  <td id="strong">{{ user.email }}</td>
 
                 </tr>
                 <tr>
                   <td>Username:</td>
-                  <td>{{ user.username }}</td>
+                  <td id="strong">{{ user.username }}</td>
 
                 </tr>
                 <tr>
                   <td>Phone:</td>
-                  <td>{{ user.phone }}</td>
+                  <td id="strong">{{ user.phone }}</td>
 
                 </tr>
                 <tr>
                   <td>DOB</td>
-                  <td>{{ user.date_of_birth }}</td>
+                  <td id="strong">{{ user.date_of_birth }}</td>
 
                 </tr>
                 <tr>
                   <td>Gender</td>
-                  <td>{{ user.gender }}</td>
+                  <td id="strong">{{ user.gender }}</td>
 
                 </tr>
                 <tr>
                         <td>Blood Group</td>
-                        <td>{{ user.blood_group }}</td>
-
-                      </tr>
+                        <td id="strong">{{ user.blood_group }}</td>
+              </tr>
               </table>
 
 
@@ -70,6 +67,7 @@
                                 <th> Doctor </th>
                                 <th> Date/time of Appointment </th>
                             </tr>
+                            {% if appointments %}
 
                             {% for appt in appointments %}
                             <tr>
@@ -78,6 +76,12 @@
                                 <td> <a href="/appointment/view/{{ appt.id }}"> {{ appt.date_time }} </a> </td>
                             </tr>
                             {% endfor %}
+
+                            {% else %}
+                            <tr>
+                                <td colspan=3>No appointments to show</td>
+                            </tr>
+                            {% endif %}
 
                         </table>
                     </div>

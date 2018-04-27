@@ -3,41 +3,41 @@
 {% block s %}
 <div class="appt">
         <p style="padding:10px;" ></p>
-        
+
         <div class="row" >
                 <div class="col-sm-2">
                     </div>
                 <div class="col-sm-6">
-                        <table>
-                    
+                        <table class="table table-striped table-bordered table-hover">
+
                                 <tr>
                                   <td>Name</td>
                                   <td>
                                         {{ appt.patient.first_name }}
                                 </td>
-                                  
+
                                 </tr>
                                 <tr>
                                   <td>Doctor</td>
                                   <td>{{ appt.doctor }}</td>
-                                  
+
                                 </tr>
                                 <tr>
                                   <td>Time, Date</td>
                                   <td>{{ appt.date_time }}</td>
-                                  
+
                                 </tr>
                                 <tr>
                                         <td>Prescription</td>
                                         <td>{{ appt. }}</td>
-                                                
+
                                  </tr>
                         </table>
-                                
-                         
-                    </div>     
+
+
+                    </div>
     </div>
-   </div> 
+   </div>
 </div>
 {% endblock %}
 <div class="appt">

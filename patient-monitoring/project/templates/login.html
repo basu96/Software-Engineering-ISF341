@@ -1,5 +1,5 @@
 {% block head %}
-<title>Patient Monitoring</title>
+<title>Login - Patient Monitoring</title>
 <meta charset="utf-8">
 {% load staticfiles %}
 <link rel="stylesheet" href= "{% static 'css/bootstrap.min.css'%}" type='text/css'/>
@@ -10,16 +10,16 @@
 {% endblock %}
 
 
-<body style="background: rgb(133, 192, 216)">
-    <h1 id="login_head" >Welcome</h1>
-    <div>
-        <p style="margin: 50px"></p>
-            <div class="container">
-                <div class="row">
+<body>
+    <h1 id="login_head" >Login</h1>
+    <p style="margin: 50px"></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
 
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6"  >
-                        <div class="card" style="background: rgb(76, 211, 121)">
+                    <div class="card card-bg">
+                        <div class="card-body">
                             <div class="row">
 
                                 <div class="col-sm-1"></div>
@@ -34,7 +34,7 @@
                                                     <div class="fieldWrapper form-group">
                                                         <div class="row" >
                                                             <div class="col-sm-4"  >
-                                                                <h6>{{ field.label_tag }}</h6>
+                                                                <h4>{{ field.label_tag }}</h4>
                                                             </div>
                                                             <div class="col-sm-8" >
                                                                     {{ field }}
@@ -50,58 +50,53 @@
                                     <p style="margin: 5px"></p>
                                 </div>
                             </div>
+                        </div>
                     </div>
-                    </div>
+                </div>
 
-                </div >
-                <p style="margin: 50px"></p>
+            </div >
+            <p style="margin: 50px"></p>
 
 
-                    <div class="row">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-6" >
-                        <div class="card" style="background: rgb(76, 211, 121)">
-                           <div class="row">
-                                <div class="col-sm-1">
-                                    </div>
-                                <div class="col-sm-11">
-                                    <p style="margin: 15px"></p>
-                                        <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
-                                            {% csrf_token %}
-                                            <div id="manual-render">
-                                                    {% for field in patient_form %}
+                <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6" >
+                    <div class="card card-bg">
+                       <div class="row">
+                            <div class="col-sm-1">
+                                </div>
+                            <div class="col-sm-11">
+                                <p style="margin: 15px"></p>
 
-                                                        <div class="fieldWrapper">
-                                                            <div class="row" >
-                                                                <div class="col-sm-4" >
-                                                                    <h6> {{ field.label_tag }}</h6>
-                                                                </div>
-                                                                <div class="col-sm-8">
-                                                                        {{ field }}
-                                                                </div>
+                                    <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
+                                        {% csrf_token %}
+
+                                        <div id="manual-render">
+                                                {% for field in patient_form %}
+
+                                                    <div class="fieldWrapper">
+                                                        <div class="row" >
+                                                            <div class="col-sm-4" >
+                                                                <h4> {{ field.label_tag }}</h4>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                    {{ field }}
                                                             </div>
                                                         </div>
-                                                        <p style="padding: 10px";></p>
-                                                    {% endfor %}
-                                                </div>
-                                            <input type="submit" class="btn btn-primary" value="Login as Patient">
-                                            <p style="margin: 5px"></p>
-                                        </form>
-                                </div>
-                        </div>
-                        </div>
+                                                    </div>
+                                                    <p style="padding: 10px";></p>
+                                                {% endfor %}
+                                            </div>
+                                        <input type="submit" class="btn btn-primary" value="Login as Patient">
+                                        <p style="margin: 5px"></p>
+                                    </form>
+
+                            </div>
+                    </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                {% comment %}
-                <div class="col-sm-5" style="background: aquamarine">
-                        <p style="margin: 15px"></p>
-                    <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
-                        {% csrf_token %}
-                        <div id="manual-render">
-                            {% for field in patient_form %}
-                            {% endfor %}
-                        </div>
-                </div>
-                {% endcomment %}
-    </body>
+</body>

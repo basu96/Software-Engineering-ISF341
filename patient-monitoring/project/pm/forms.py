@@ -3,15 +3,15 @@ from .models import User, Appointment
 import datetime
 
 class PatientLoginForm(forms.Form):
-    username = forms.CharField(label='Username',max_length=20)
+    username = forms.CharField(label='Username',max_length=20,widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     date_of_birth = forms.DateField(
         widget = forms.SelectDateWidget(years=range(1920, datetime.date.today().year))
     )
 
 
 class StaffLoginForm(forms.Form):
-    username = forms.CharField(label='Username',max_length=20)
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='Username',max_length=20, widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
 
 class PatientCreateForm(forms.Form):

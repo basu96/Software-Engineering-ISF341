@@ -4,6 +4,10 @@
     width: 100%;
 } */
 
+body{
+    background-color: lightblue;
+}
+
 td{
     border: 2px solid #020101;
     text-align: left;
@@ -22,4 +26,11 @@ td{
 }
 .hidden{
     display: none;
+}
+.card-bg{
+    background-color: lightblue;
+    height: 300px;
+}
+#strong{
+    font-weight: bold;
 }

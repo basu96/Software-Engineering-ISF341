@@ -44,3 +44,5 @@ class AppointmentTestCase(TestCase):
         pat = User.objects.create(username = 'patient1', user_type = 1)
         doc = User.objects.create(username = 'doctor1', user_type = 2)
         appt = Appointment.objects.create(patient = pat, doctor = doc)
+
+        
