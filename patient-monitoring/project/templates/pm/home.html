@@ -6,7 +6,8 @@
         <div class="col-sm-0" >
             <span class="glyphicon glyphicon-search"></span>  
       </div>
-      <div class="col-sm-12">
+      {% load staticfiles %}
+      <div class="col-sm-12" id="bg" style="background-image: url('{% static "orig_67158.jpg"%}')">
           {% load static %} <img src="{% static "welcomephotu2.jpg" %}" alt="Hi!" style="width:1450px;height:700px;"/>
     </div>
   </div> 
