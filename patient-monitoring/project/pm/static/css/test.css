@@ -20,3 +20,6 @@ td{
     background-position: top;
     background-attachment: fixed;
 }
+.hidden{
+    display: none;
+}

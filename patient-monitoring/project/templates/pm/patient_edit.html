@@ -1,23 +1,23 @@
 {% extends "pm/base.html" %}
 {% block s %}
-<p style="margin: 20px"></p> 
-<div class="container">    
+<p style="margin: 20px"></p>
+<div class="container">
     <div class="row ">
         <div class="col-sm-3">
         </div>
         <div class="col-sm-7">
-                
+
             <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);" >
                 <div class="row">
                         <div class="col-sm-1">
                             </div>
-                        <div class="col-sm-11">    
-                        <form action="/patient/create/" method="POST" enctype="multipart/form=data">
+                        <div class="col-sm-11">
+                        <form action="/patient/edit/{{ user }}/" method="POST" enctype="multipart/form=data">
                             <div id="manual-render">
                                     <p style="margin: 40px"></p>
                                     {% csrf_token %}
                                     {% for field in form %}
-                                    
+
                                         <div class="fieldWrapper">
                                             <div class="row" >
                                                 <div class="col-sm-4" >
@@ -31,21 +31,21 @@
                                         <p style="padding: 10px";></p>
                                     {% endfor %}
                                 </div>
-                             
+
                     <div class="row">
-                            
-                        <div class="col-sm-7">      
+
+                        <div class="col-sm-7">
                             <input class="btn btn-primary" type="submit" value="Update">
-                        </div>     
                         </div>
-                        <p style="margin: 20px"></p>          
+                        </div>
+                        <p style="margin: 20px"></p>
                         </form>
-                    </div>    
+                    </div>
             </div>
     </div>
 </div>
-    
-</div>    
+
+</div>
 {% endblock %}
 <form action="" method="POST" enctype="multipart/form=data">
     {% csrf_token %}

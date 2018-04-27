@@ -118,6 +118,7 @@ def patient_edit(request, uname):
         form = PatientCreateForm(initial=values)
         context = {
             'form': form,
+            'user': usr,
         }
         return render(request, 'pm/patient_edit.html', context)
 
@@ -125,6 +126,7 @@ def patient_edit(request, uname):
         form = PatientCreateForm(request.POST)
         if form.is_valid:
 
+            usr.username = form['username'].value()
             usr.first_name = form['first_name'].value()
             usr.last_name = form['last_name'].value()
             usr.phone = form['phone'].value()

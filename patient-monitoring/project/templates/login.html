@@ -12,49 +12,51 @@
 
 <body style="background: rgb(133, 192, 216)">
     <h1 id="login_head" >Welcome</h1>
-    <div >
+    <div>
         <p style="margin: 50px"></p>
             <div class="container">
                 <div class="row">
+
                     <div class="col-sm-3"></div>
-                     <div class="col-sm-6"  >
+                    <div class="col-sm-6"  >
                         <div class="card" style="background: rgb(76, 211, 121)">
-                                <div class="row">
+                            <div class="row">
 
-                                        <div class="col-sm-1">
-                                            </div>
-                                        <div class="col-sm-11">
-                                                <p style="margin: 15px"></p>
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-11">
+                                    <p style="margin: 15px"></p>
 
-                                <form action="/auth/staff/" method="POST" enctype="multipart/form-data">
-                                    <div id="manual-render">
-                                        {% csrf_token %}
-                                            {% for field in staff_form %}
+                                    <form action="/auth/staff/" method="POST" enctype="multipart/form-data">
+                                            <div id="manual-render">
+                                                {% csrf_token %}
+                                                    {% for field in staff_form %}
 
-                                                <div class="fieldWrapper">
-                                                    <div class="row" >
-                                                        <div class="col-sm-4"  >
-                                                            <h6>{{ field.label_tag }}</h6>
-                                                        </div>
-                                                        <div class="col-sm-8" >
-                                                                {{ field }}
+                                                    <div class="fieldWrapper">
+                                                        <div class="row" >
+                                                            <div class="col-sm-4"  >
+                                                                <h6>{{ field.label_tag }}</h6>
+                                                            </div>
+                                                            <div class="col-sm-8" >
+                                                                    {{ field }}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <p style="padding: 10px";></p>
-                                            {% endfor %}
-                                        </div>
-                                        <input type="submit"  class="btn btn-primary" value="Login as Staff">
-                                </form>
 
-                                <p style="margin: 5px"></p>
+                                                    <p style="padding: 10px";></p>
+                                                {% endfor %}
+                                            </div>
+                                            <input type="submit"  class="btn btn-primary" value="Login as Staff">
+                                    </form>
+                                    <p style="margin: 5px"></p>
                                 </div>
-                                </div>
+                            </div>
                     </div>
                     </div>
 
                 </div >
                 <p style="margin: 50px"></p>
+
+
                     <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6" >
@@ -90,13 +92,16 @@
                         </div>
                     </div>
                 </div>
+
+                {% comment %}
                 <div class="col-sm-5" style="background: aquamarine">
                         <p style="margin: 15px"></p>
                     <form action="/auth/patient/" method="POST" enctype="multipart/form=data">
                         {% csrf_token %}
                         <div id="manual-render">
-                                {% for field in patient_form %}
-
-            </div>
-        </div>
+                            {% for field in patient_form %}
+                            {% endfor %}
+                        </div>
+                </div>
+                {% endcomment %}
     </body>

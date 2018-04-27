@@ -3,15 +3,15 @@
 {% block s %}
 <div class="container" >
         <p style="padding:10px;" ></p>
-        
+
         <div class="row" >
                 <div class="col-sm-2">
                     </div>
                     <div class="col-sm-8">
-                         
+
                 <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);" >
                     <div class="row">
-                           
+
                             <form action="/appointment/create/" method="POST" enctype="multipart/form=data">
 
                                 <div id="manual-render">
@@ -19,10 +19,8 @@
                                         {% csrf_token %}
                                     {% for field in form %}
 
-                                        {# {% if field.label != 'Doctor' %} #}
-
-                                        <div class="fieldWrapper">
-                                            <div class="row"  >
+                                        <div class="fieldWrapper {% if field.label == "Doctor" %}hidden{% endif %}">
+                                            <div class="row "  >
                                                 <div class="col-sm-1" >
                                                     </div>
                                                 <div class="col-sm-3" >
@@ -34,10 +32,10 @@
                                                         {{ field }}
                                                 </div>
                                             </div>
+                                            <p style="padding: 10px";></p>
                                         </div>
 
-                                        <p style="padding: 10px";></p>
-                                        {# {% endif %} #}
+
 
                                     {% endfor %}
                                 </div>
@@ -50,11 +48,11 @@
                                     </div>
                                 </div>
                             </form>
-                    
-                </div> 
-            </div>  
-            </div>     
+
+                </div>
+            </div>
+            </div>
     </div>
-   </div> 
+   </div>
 </div>
 {% endblock %}
