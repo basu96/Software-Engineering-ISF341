@@ -59,13 +59,18 @@ def auth_staff(request):
         return redirect('/login/')
 
 def patient_view(request, uname):
+    logged_in_user = request.user
     usr = get_object_or_404(User, username = uname)
     appointments = Appointment.objects.filter(patient=usr)
     context = {
         'user': usr,
         'appointments': appointments,
+        'logged_in_user': logged_in_user,
     }
-    return render(request, 'pm/patient_view.html', context)
+    if logged_in_user.user_type == 2:
+        return render(request, 'pm/patient_view.html', context)
+    else:
+        return render(request, 'pm/patient_view_patient.html', context)
 
 def patient_create(request):
 
@@ -153,11 +158,16 @@ def appointment_view_all(request):
     return render(request, 'pm/appointments_all.html', context)
 
 def appointment_view(request, id):
+    logged_in_user = request.user
     appt = get_object_or_404(Appointment, pk = id)
     context = {
         'appt': appt,
+        'logged_in_user': logged_in_user,
     }
-    return render(request, 'pm/appointment_view.html', context)
+    if(logged_in_user.user_type == 2):
+        return render(request, 'pm/appointment_view.html', context)
+    else:
+        return render(request, 'pm/appointment_view_patient.html', context)
 
 def appointment_create(request, uname = None):
     user = request.user
