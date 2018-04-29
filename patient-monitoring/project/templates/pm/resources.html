@@ -1,0 +1,16 @@
+{% extends 'pm/base_patient.html' %}
+{% load static %}
+
+{% block s %}
+
+<h1>UML DIAGRAMS</h1>
+<br>
+<ul>
+    <li>  <a href="{% static 'uml/use_case_diagram.pdf' %}"> Use Case Diagram </a>  </li>
+    <li>  <a href="{% static 'uml/sequence_diagram.pdf' %}"> Sequence Diagram </a>  </li>
+    <li>  <a href="{% static 'uml/activity_diagram.pdf' %}"> Activity Diagram </a>  </li>
+    <li>  <a href="{% static 'uml/class_diagram.pdf' %}"> Class Diagram </a>  </li>
+
+</ul>
+
+{% endblock %}

@@ -205,3 +205,6 @@ def patient_view_all(request):
 def logout_view(request):
     logout(request)
     return redirect('/login/')
+
+def resources(request):
+    return render(request, 'pm/resources.html')
