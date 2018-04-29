@@ -34,7 +34,7 @@ def auth_patient(request):
                     login(request, user)
                     return redirect('/patient/view/' + user.username)
                 else:
-                    return HttpResponse('log in failed')
+                    return redirect('/login/')
             else:
                 return redirect('/login/')
     else:
@@ -98,7 +98,7 @@ def patient_create(request):
             )
             usr.save()
 
-        return HttpResponse('Form submitted')
+        return redirect('/patient/')
 
 def patient_remove(remove, uname):
     usr = get_object_or_404(User, username = uname)
@@ -112,7 +112,7 @@ def patient_edit(request, uname):
         values = {
             'username': usr.username,
             'first_name': usr.first_name,
-            'last_name': usr.first_name,
+            'last_name': usr.last_name,
             'phone': usr.phone,
             'email': usr.email,
             'gender': usr.gender,
@@ -143,7 +143,7 @@ def patient_edit(request, uname):
             usr.date_of_birth = dt
             usr.save()
 
-        return HttpResponse('Form submitted')
+        return redirect('/patient/')
 
 def test_view(request):
     return render(request, 'pm/testview.html')
