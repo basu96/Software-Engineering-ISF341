@@ -25,7 +25,7 @@ SECRET_KEY = 'b#r+zu_$a_d5(&#)fn)9a)tz2olkpn8x&uao#=!nu*a#l6$u@9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['basu96.pythonanywhere.com','127.0.0.1']
 AUTH_USER_MODEL = 'pm.User'
 
 # Application definition
