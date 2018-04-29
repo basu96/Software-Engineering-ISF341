@@ -140,7 +140,7 @@ class ObjectRemoveTestCase(TestCase):
         appt = Appointment.objects.all()
         if len(appt):
             self.assertEqual(True, False)
-            print('Object remove appointment existence test failed')            
+            print('Object remove appointment existence test failed')
         else:
             self.assertEqual(True, True)
             print('Object remove appointment existence test OK')
